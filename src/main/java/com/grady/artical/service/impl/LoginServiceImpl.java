@@ -23,6 +23,12 @@ public class LoginServiceImpl implements ILoginService {
     @Autowired
     private IPermissionService permissionService;
 
+
+    public JSONObject logout(){
+        Subject currentUser = SecurityUtils.getSubject();
+        currentUser.logout();
+        return CommonUtil.successJson("已退出");
+    }
     public JSONObject authLogin(JSONObject jsonObject){
         String username = jsonObject.getString("username");
         String password = jsonObject.getString("password");

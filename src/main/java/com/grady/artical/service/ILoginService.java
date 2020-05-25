@@ -8,4 +8,6 @@ public interface ILoginService {
     JSONObject getUser(String username,String password);
 
     JSONObject getInfo();
+
+    JSONObject logout();
 }
