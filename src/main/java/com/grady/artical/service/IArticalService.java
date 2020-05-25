@@ -11,4 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 public interface IArticalService {
 
     JSONObject listArticle(JSONObject jsonObject);
+
+    JSONObject addArticle(JSONObject jsonObject);
+
+    JSONObject updateArticle(JSONObject jsonObject);
+
+
 }

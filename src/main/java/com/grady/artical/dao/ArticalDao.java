@@ -22,4 +22,8 @@ public interface ArticalDao {
      * @return
      */
     List<JSONObject> listArticle(JSONObject jsonObject);
+
+    int addArticle(JSONObject jsonObject);
+
+    int updateArticle(JSONObject jsonObject);
 }

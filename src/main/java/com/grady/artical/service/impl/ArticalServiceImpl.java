@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.grady.artical.dao.ArticalDao;
 import com.grady.artical.service.IArticalService;
 import com.grady.artical.util.CommonUtil;
+import com.grady.artical.util.constant.ErrorEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,4 +28,14 @@ public class ArticalServiceImpl implements IArticalService {
         return CommonUtil.successPage(jsonObject,articalDaos,count);
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    public JSONObject addArticle(JSONObject jsonObject){
+        articalDao.addArticle(jsonObject);
+        return CommonUtil.successJson();
+    }
+
+    public JSONObject updateArticle(JSONObject jsonObject){
+        articalDao.updateArticle(jsonObject);
+        return CommonUtil.successJson();
+    }
 }
